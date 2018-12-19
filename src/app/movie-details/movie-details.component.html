@@ -1,0 +1,11 @@
+<button (click)="goBack()">Back</button>
+
+<div *ngIf="movie">
+  <h2>{{movie.title | uppercase}}</h2>
+  <div><span>id: </span>{{movie.id}}</div>
+  <br>
+  <div><span>Overview/Description: </span>{{movie.overview}}</div>
+  <br>
+  <div><span>Image path: </span>{{movie.poster_path}}</div>
+  <img *ngIf="movie.poster_path" class="ui middle aligned tiny image" src="https://image.tmdb.org/t/p/w500/{{movie.poster_path}}">
+</div>

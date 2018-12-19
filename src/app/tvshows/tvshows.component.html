@@ -1,0 +1,30 @@
+<nav>
+  <button><a routerLink="/movies">Movies</a></button>
+  <button><a routerLink="/tvshows">Tv Shows</a></button>
+</nav>
+
+<app-search></app-search>
+
+<h2>{{tvshow.title }}</h2>
+
+<div class="tvshows">
+    <ul *ngFor="let tvshow of tvshows.results | slice:0:10">
+      <li>
+        <button><a routerLink="/tvshow/{{tvshow.id}}">{{ tvshow.name }}</a></button>
+      </li>
+      <li>Tv Show Title: {{ tvshow.name }}</li>
+      <li>Tv Show Description: {{ tvshow.overview }}</li>
+      <li>Tv Show Id: {{ tvshow.id }}</li>
+      <li>Image Url: {{ tvshow.poster_path}}</li>
+      <img *ngIf="tvshow.poster_path" class="ui middle aligned tiny image" src="https://image.tmdb.org/t/p/w500/{{tvshow.poster_path}}">
+    </ul>
+  </div>
+
+
+<!--
+  <a *ngFor="let tvshow of tvshows.results | slice:0:10" class="col-1-4" routerLink="/tvshow/{{tvshow.id}}">
+    <div class="module tvshow">
+      <h4>{{tvshow.name}}</h4>
+    </div>
+  </a>
+-->

@@ -1,0 +1,33 @@
+<nav>
+  <button><a routerLink="/movies">Movies</a></button>
+  <button><a routerLink="/tvshows">Tv Shows</a></button>
+</nav>
+
+<app-search></app-search>
+
+<h2>{{movie.title}}</h2>
+
+<div class="movies">
+  <ul *ngFor="let movie of movies.results | slice:0:10">
+    <li>
+      <button><a routerLink="/movie/{{movie.id}}">{{ movie.title }}</a></button>
+    </li>
+    <li>Movie Title: {{ movie.title }}</li>
+    <li>Movie Description: {{ movie.overview }}</li>
+    <li>Movie Id: {{ movie.id }}</li>
+    <li>Image Url: {{ movie.poster_path}}</li>
+    <img *ngIf="movie.poster_path" class="ui middle aligned tiny image" src="https://image.tmdb.org/t/p/w500/{{movie.poster_path}}">
+  </ul>
+</div>
+
+
+<!--
+
+  <a *ngFor="let movie of movies.results | slice:0:10" class="col-1-4"
+    routerLink="/movie/{{movie.id}}">
+  <div class="module movie">
+    <h4>{{movie.title}}</h4>
+  </div>
+</a>
+
+-->

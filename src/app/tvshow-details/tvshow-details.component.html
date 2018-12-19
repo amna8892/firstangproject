@@ -1,0 +1,11 @@
+<button (click)="goBack()">Back</button>
+
+<div *ngIf="tvshow">
+  <h2>{{tvshow.name | uppercase}}</h2>
+  <div><span>id: </span>{{tvshow.id}}</div>
+  <br>
+  <div><span>Overview/Description: </span>{{tvshow.overview}}</div>
+  <br>
+  <div><span>Image path: </span>{{tvshow.poster_path}}</div>
+  <img *ngIf="tvshow.poster_path" class="ui middle aligned tiny image" src="https://image.tmdb.org/t/p/w500/{{tvshow.poster_path}}">
+</div>
